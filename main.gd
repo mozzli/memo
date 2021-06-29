@@ -1,16 +1,24 @@
 extends Node2D
 
+var list = []
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+var numer_karty = []
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+
+func _process(delta):
+	if list.size() == 2:
+		if list[0] == list[1]:
+			for i in numer_karty:
+				get_node("card_" + String(i)).queue_free()
+		list = []
+
+func _on_card_1_card_show(karta, numer):
+	list.append(karta)
+	numer_karty.append(numer)
+	
+
+
+func _on_card_2_card_show(karta, numer):
+	list.append(karta)
+	numer_karty.append(numer)

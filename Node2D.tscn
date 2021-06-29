@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://icon.png" type="Texture" id=1]
 [ext_resource path="res://sprites/cards/card_1.png" type="Texture" id=2]
 [ext_resource path="res://card_1.gd" type="Script" id=3]
 [ext_resource path="res://card_2.gd" type="Script" id=4]
 [ext_resource path="res://card_4.gd" type="Script" id=5]
+[ext_resource path="res://main.gd" type="Script" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 62, 92.5641 )
@@ -34,6 +35,7 @@ func _on_card_3_mouse_exited():
 "
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource( 6 )
 
 [node name="card_1" type="KinematicBody2D" parent="."]
 input_pickable = true
@@ -127,8 +129,10 @@ texture = ExtResource( 2 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="card_4"]
 position = Vector2( 100, 139 )
 shape = SubResource( 1 )
+[connection signal="card_show" from="card_1" to="." method="_on_card_1_card_show"]
 [connection signal="mouse_entered" from="card_1" to="card_1" method="_on_card_1_mouse_entered"]
 [connection signal="mouse_exited" from="card_1" to="card_1" method="_on_card_1_mouse_exited"]
+[connection signal="card_show" from="card_2" to="." method="_on_card_2_card_show"]
 [connection signal="mouse_entered" from="card_2" to="card_2" method="_on_card_2_mouse_entered"]
 [connection signal="mouse_exited" from="card_2" to="card_2" method="_on_card_2_mouse_exited"]
 [connection signal="mouse_entered" from="card_3" to="card_3" method="_on_card_3_mouse_entered"]
