@@ -12,11 +12,11 @@ func _input(event):
 				$back.visible = true
 				$front.visible = false
 
-func _on_card_1_mouse_entered():
+func _on_card_4_mouse_entered():
 	mouse_on = true
 	print("in")
 
 
-func _on_card_1_mouse_exited():
+func _on_card_4_mouse_exited():
 	mouse_on = false
 	print("out")
